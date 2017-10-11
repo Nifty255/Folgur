@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script src="/javascripts/cookies.js"></script>
+		<script type="text/javascript">
+			parseCookies();
+			
+			deleteCookie("token");
+			
+			setTimeout(function() {
+				
+				window.location = "/auth";
+			}, 1000);
+		</script>
+	</head>
+	<body style="background-color: #222222; color: white;">
+		Error! There was an error logging you in. Please try again.
+	</body>
+</html>

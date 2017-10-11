@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<title>Folgur | Home</title>
+		<meta name="robots" content="noindex, nofollow">
+		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="/stylesheets/common.css" rel="stylesheet">
+		<%- include("partials/favicon") %>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var plat = "<%- plat %>";
+			var client = "<%- client %>";
+			var username = "<%- user.username %>";
+			var access = "<%- user.imgurAccess %>";
+			var dontShowFolderRemove = <%- user.dontShowFolderRemove %>;
+			var dontShowImageRemove = <%- user.dontShowImageRemove %>;
+		</script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+		<script src="/javascripts/cookies.js"></script>
+		<script src="/javascripts/testing.js"></script>
+		<script src="/javascripts/folders.js"></script>
+	</head>
+	<body>
+		<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Really Delete?</h4>
+					</div>
+					<div class="modal-body" id="delete-folder">
+						<p>Deleting this folder will delete ALL subfolders and unsort ALL images in them.</p>
+						<input type="checkbox" id="dont-warn-folder" />
+						<label class="lname" for="dont-warn-folder">Don't warn me again.</label>
+					</div>
+					<div class="modal-body" id="delete-image">
+						<p>Deleting this image will cause it to become unsorted.</p>
+						<input type="checkbox" id="dont-warn-image" />
+						<label class="lname" for="dont-warn-image">Don't warn me again.</label>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" id="delete-confirm">Delete</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="preview-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Image Preview</h4>
+					</div>
+					<div class="modal-body" id="preview-body">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% include partials/header %>
+		<div class="subhead" style="displat: none;">
+			<h3 id="status">&nbsp;</h3>
+		</div>
+		<div class="folderpane">
+			<h1 id="foldertitle">Root Folder:</h1>
+			<span id="folderpath">/</span>
+			<p>Double click a folder to open. Double click a favorite to copy its URL.</p>
+			<ul class="folderlist">
+			</ul>
+		</div>
+		<div class="sortingpane">
+			<div id="loading-unsorted">
+				<img src="/images/loading.gif">
+				<h1>Getting Unsorted Favorites...</h1>
+			</div>
+			<div id="pane-unsorted" style="display: none;">
+				<div class="cardcont">
+					<div class="card">
+					</div>
+					<div class="card">
+					</div>
+					<div class="card">
+					</div>
+					<div class="card">
+					</div>
+				</div>
+				<button class="imgur sort l" id="skip">Skip this favorite</button>
+				<button class="imgur sort r" id="save">Save to current folder</button>
+			</div>
+			<div id="nomore-unsorted" style="display: none;">
+				<img src="/images/done.png">
+				<h1>You're all caught up!</h1>
+				<h3>Refresh the page to see any new favorites.</h3>
+			</div>
+		</div>
+		<input id="linkcopy" type="text">
+	</body>
+</html>

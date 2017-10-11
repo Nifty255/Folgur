@@ -1,0 +1,15 @@
+<div class="head">
+	<h1 id="title">Folgur, By Nifty255</h1>
+	<ul class="nav" role="tablist">
+	  <li><a data-nav="folders" href="/folders">Folders</a></li>
+	  <li><a data-nav="about" href="/about">About</a></li>
+	</ul>
+	<script>
+	  $('.nav-tabs a').removeClass('active')
+
+	  $('.nav-tabs a[data-nav="'+location.pathname.replace('/', '')+'"] ').addClass('active')
+	  if (location.pathname.replace('/', '') === "") {
+		$('.nav-tabs a').eq(0).addClass('active')
+	  }
+	</script>
+</div>

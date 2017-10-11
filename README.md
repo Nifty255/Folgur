@@ -25,11 +25,11 @@ Folgur requires authorization to your Imgur account in order to access your favo
 
 # ENVIRONMENT VARS:
 
-IM-CLIENT: The Imgur app client ID.
-IM-SECRET: The Imgur app client secret.
-MASHAPEKEY: Not currently used, the Mashape key, for commercial use if Imgur's API.
-ISHEROKU: Determines whether the app is running on Heroku. Used to obtain the proper MongoDB URI. Set to "1" without quotes.
-MONGOURI: When ISHEROKU is set to "1", Mongoose connects to this URI.
+- IM-CLIENT: The Imgur app client ID.
+- IM-SECRET: The Imgur app client secret.
+- MASHAPEKEY: Not currently used, the Mashape key, for commercial use if Imgur's API.
+- ISHEROKU: Determines whether the app is running on Heroku. Used to obtain the proper MongoDB URI. Set to "1" without quotes.
+- MONGOURI: When ISHEROKU is set to "1", Mongoose connects to this URI.
 
 # CHANGELOG:
 
